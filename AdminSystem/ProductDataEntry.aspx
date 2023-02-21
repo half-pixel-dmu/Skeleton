@@ -31,6 +31,17 @@
 
         <asp:Label ID="lvlAvailability" runat="server" Text="Availability"></asp:Label>
         <asp:CheckBox ID="chkAvailability" runat="server" />
+
+        <br /><br />
+
+        <asp:Label ID="lblStaff" runat="server" Text="StaffNo"></asp:Label>
+        <asp:TextBox ID="txtStaff" runat="server"></asp:TextBox>
+
+        <br /><br />
+
+        <asp:Button ID="btnCreate" runat="server" Text="Create" OnClick="btnCreate_Click" />
+        &nbsp;&nbsp;
+        <asp:Button ID="btnCancel" runat="server" Text="Cancel" />
     </form>
 </body>
 </html>
