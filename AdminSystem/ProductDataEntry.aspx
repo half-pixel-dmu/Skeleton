@@ -1,10 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="ProductDataEntry.aspx.cs" Inherits="_1_DataEntry" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="ProductDataEntry.aspx.cs" Inherits="ProductDataEntry" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>Product Data Entry Page</title>
 </head>
 <body>
     <h1>Product Data Entry</h1>
@@ -42,6 +42,10 @@
         <asp:Button ID="btnCreate" runat="server" Text="Create" OnClick="btnCreate_Click" />
         &nbsp;&nbsp;
         <asp:Button ID="btnCancel" runat="server" Text="Cancel" />
+
+        <br /><br />
+
+        <asp:Label ID="lblError" runat="server" Text=""></asp:Label>
     </form>
 </body>
 </html>

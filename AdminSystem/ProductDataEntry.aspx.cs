@@ -18,6 +18,10 @@ public partial class ProductDataEntry : System.Web.UI.Page
         clsProduct anProduct = new clsProduct();
 
         anProduct.ProductTitle = txtTitle.Text;
+        anProduct.ProductDescription = txtDescription.Text;
+        anProduct.ProductPrice = float.Parse(txtPrice.Text);
+        anProduct.ProductAvailability = chkAvailability.Checked;
+        anProduct.StaffNo = int.Parse(txtStaff.Text);
 
         Session["AnProduct"] = anProduct;
 
