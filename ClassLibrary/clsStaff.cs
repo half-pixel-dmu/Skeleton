@@ -1,4 +1,6 @@
-﻿namespace ClassLibrary
+﻿using System;
+
+namespace ClassLibrary
 {
     public class clsStaff
     {
@@ -6,5 +8,7 @@
         public string StaffName { get; set; }
         public string StaffEmail { get; set; }
         public bool StaffAvailability { get; set; }
+        public DateTime StaffDate { get; set; }
+        public int ProductNo { get; set; }
     }
 }

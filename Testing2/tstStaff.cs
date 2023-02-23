@@ -16,65 +16,84 @@ namespace Testing2
             Assert.IsNotNull(Staff);
         }
 
+        [TestMethod]
         public void StaffNoPropertyOK()
         {
             //create an instance of the class we want to create
             clsStaff Staff = new clsStaff();
             //create some test data to asign to the property
-            Int32 TestData = 1;
+            Int32 TestData = 123;
             //assign the data to the property
             Staff.StaffNo = TestData;
             //test to see that the two values are the same
             Assert.AreEqual(Staff.StaffNo, TestData);
         }
 
+        [TestMethod]
         public void StaffNamePropertyOK()
         {
-            //create an instance of the class we want to create
+            //see above test for comments
             clsStaff Staff = new clsStaff();
-            //create some test data to asign to the property
-            string TestData = "21b";
-            //assign the data to the property
+
+            string TestData = "Alex";
+
             Staff.StaffName = TestData;
-            //test to see that the two values are the same
+
             Assert.AreEqual(Staff.StaffName, TestData);
         }
 
+        [TestMethod]
         public void StaffEmailPropertyOK()
         {
-            //create an instance of the class we want to create
+            //see above test for comments
             clsStaff Staff = new clsStaff();
-            //create some test data to asign to the property
-            string TestData = "21b";
-            //assign the data to the property
+
+            string TestData = "Alex@gmail.com";
+
             Staff.StaffEmail = TestData;
-            //test to see that the two values are the same
+
             Assert.AreEqual(Staff.StaffEmail, TestData);
         }
 
+        [TestMethod]
         public void StaffAvailabilityPropertyOK()
         {
-            //create an instance of the class we want to create
+            //see above test for comments
             clsStaff Staff = new clsStaff();
-            //create some test data to asign to the property
+
             Boolean TestData = true;
-            //assign the data to the property
+
             Staff.StaffAvailability = TestData;
-            //test to see that the two values are the same
+
             Assert.AreEqual(Staff.StaffAvailability, TestData);
         }
 
+        [TestMethod]
         public void StaffDatePropertyOK()
         {
-            //create an instance of the class we want to create
+            //see above test for comments
             clsStaff Staff = new clsStaff();
-            //create some test data to asign to the property
-            Boolean TestData = true;
-            //assign the data to the property
-            Staff.Staffat = TestData;
-            //test to see that the two values are the same
-            Assert.AreEqual(Staff.StaffAvailability, TestData);
+
+            DateTime TestData = DateTime.Now.Date;
+
+            Staff.StaffDate = TestData;
+
+            Assert.AreEqual(Staff.StaffDate, TestData);
         }
+
+        [TestMethod]
+        public void ProductNoPropertyOK()
+        {
+            //see above test for comments
+            clsStaff Staff = new clsStaff();
+
+            Int32 TestData = 123;
+
+            Staff.ProductNo = TestData;
+
+            Assert.AreEqual(Staff.ProductNo, TestData);
+        }
+
         public void TestMethod1()
         {
         }
