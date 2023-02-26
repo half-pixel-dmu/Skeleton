@@ -1,19 +1,94 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 
 namespace ClassLibrary
 {
     public class clsCustomer
     {
-        public int CustomerNo { get; set; }
+        private Int32 mCustomerNo;
+        public int CustomerNo
+        {
+            get {
+                return mCustomerNo;
+            }
+            set {
+                mCustomerNo = value;
+            }
+        }
+        private string mCustomerName;
+        public string CustomerName
+        {
+            get
+            {
+                return mCustomerName;
+            }
+            set 
+            {
+                mCustomerName = value;
+            }
+        }
+        private string mCustomerEmail;
+        public string CustomerEmail
+        {
+            get
+            {
+                return mCustomerEmail;
+            }
+            set
+            {
+                mCustomerEmail = value;
+            }
+        }
+        private string mCustomerAddress;
+        public string CustomerAddress
+        {
+            get
+            {
+                return mCustomerAddress;
+            }
+            set
+            {
+                mCustomerAddress = value;
+            }
+        }
 
-        public string CustomerName { get; set; }
+        private DateTime mDateJoined;
+        public DateTime CustomerDateJoined
+        {
+            get
+            {
+                return mDateJoined;
+            }
+            set 
+            {
+                mDateJoined = value;
+            }
+        }
+        private bool mCustomerConfirmed;
+        
+        public bool CustomerConfirmed
+        {
+            get
+            {
+                return mCustomerConfirmed;
+            }
+            set
+            {
+                mCustomerConfirmed = value;
+            }
+        }
 
-        public string CustomerEmail { get; set; }
-
-        public string CustomerAddress { get; set; }
-
-        public DateTime CustomerDateJoined { get; set; }
-
-        public bool CustomerConfirmed { get; set; }
+        public bool Find(int CustomerNo)
+        {
+            mCustomerNo = 21;
+            mCustomerName = "Test Name";
+            mCustomerEmail = "Test email";
+            mCustomerAddress = "This Street";
+            mDateJoined = Convert.ToDateTime("16/09/2023");
+            mCustomerConfirmed = true;
+            return true;
+        }
     }
 }
