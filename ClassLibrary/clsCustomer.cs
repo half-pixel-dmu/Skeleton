@@ -82,7 +82,7 @@ namespace ClassLibrary
 
         public bool Find(int CustomerNo)
         {
-            mCustomerNo = 21;
+            mCustomerNo = 1021;
             mCustomerName = "Test Name";
             mCustomerEmail = "Test email";
             mCustomerAddress = "This Street";

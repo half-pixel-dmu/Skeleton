@@ -14,10 +14,10 @@
         <asp:TextBox ID="txtCustomerName" runat="server" OnTextChanged="TextBox1_TextChanged"></asp:TextBox>
         <br />
         <asp:Label ID="lblEmail" runat="server" Text="Email" width="118px"></asp:Label>
-        <asp:TextBox ID="txtEmail" runat="server" OnTextChanged="TextBox1_TextChanged"></asp:TextBox>
+        <asp:TextBox ID="txtEmail" runat="server" OnTextChanged="TextBox1_TextChanged" width="168px"></asp:TextBox>
         <br />
         <asp:Label ID="lblAddress" runat="server" Text="Home Address"></asp:Label>
-        <asp:TextBox ID="txtAddress" runat="server" OnTextChanged="TextBox1_TextChanged"></asp:TextBox>
+        <asp:TextBox ID="txtAddress" runat="server" OnTextChanged="TextBox1_TextChanged" width="168px"></asp:TextBox>
         <br />
         <br />
         <asp:Label ID="lblError" runat="server" Text=""></asp:Label>

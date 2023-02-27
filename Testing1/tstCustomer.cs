@@ -26,7 +26,7 @@ namespace TestingCustomer
             //create an instance of the class we want to create 
             clsCustomer AnCustomer = new clsCustomer();
             //create some tesst data to assign to the property 
-            Int32 TestData = 1000;
+            Int32 TestData = 1021;
             //assign the data to the property 
             AnCustomer.CustomerNo = TestData;
             //test to see that the two values are the same 
@@ -103,7 +103,7 @@ namespace TestingCustomer
         {
             clsCustomer AnCustomer = new clsCustomer();
             Boolean Found = false;
-            Int32 CustomerNo = 21;
+            Int32 CustomerNo = 1021;
             Found = AnCustomer.Find(CustomerNo);
             Assert.IsTrue(Found);
 
@@ -115,9 +115,9 @@ namespace TestingCustomer
             clsCustomer AnCustomer = new clsCustomer();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 CustomerNo = 21;
+            Int32 CustomerNo = 1021;
             Found = AnCustomer.Find(CustomerNo);
-            if (AnCustomer.CustomerNo != 21)
+            if (AnCustomer.CustomerNo != 1021)
             {
                 OK = false;
             }
@@ -130,7 +130,7 @@ namespace TestingCustomer
             clsCustomer AnCustomer = new clsCustomer();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 CustomerNo = 21;
+            Int32 CustomerNo = 1021;
             Found = AnCustomer.Find(CustomerNo);
             if(AnCustomer.CustomerName != "Test Name")
             {
@@ -146,7 +146,7 @@ namespace TestingCustomer
             clsCustomer AnCustomer = new clsCustomer();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 CustomerNo = 21;
+            Int32 CustomerNo = 1021;
             Found = AnCustomer.Find(CustomerNo);
             if(AnCustomer.CustomerEmail != "Test email")
             {
@@ -161,7 +161,7 @@ namespace TestingCustomer
             clsCustomer AnCustomer = new clsCustomer();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 CustomerNo = 21;
+            Int32 CustomerNo = 1021;
             Found = AnCustomer.Find(CustomerNo);
             if(AnCustomer.CustomerAddress != "This Street")
             {
@@ -176,7 +176,7 @@ namespace TestingCustomer
             clsCustomer AnCustomer = new clsCustomer();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 CustomerNo = 21;
+            Int32 CustomerNo = 1021;
             Found = AnCustomer.Find(CustomerNo);
             if (AnCustomer.CustomerDateJoined != Convert.ToDateTime("16/09/2023"))
             {
@@ -190,7 +190,7 @@ namespace TestingCustomer
             clsCustomer AnCustomer = new clsCustomer();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 CustomerNo = 21;
+            Int32 CustomerNo = 1021;
             Found = AnCustomer.Find(CustomerNo);
             if(AnCustomer.CustomerConfirmed != true)
             {
