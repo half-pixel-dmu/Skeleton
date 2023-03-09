@@ -54,16 +54,16 @@ namespace ClassLibrary
             }
         }
 
-        private DateTime mDateJoined;
+        private DateTime mCustomerDateJoined;
         public DateTime CustomerDateJoined
         {
             get
             {
-                return mDateJoined;
+                return mCustomerDateJoined;
             }
             set 
             {
-                mDateJoined = value;
+                mCustomerDateJoined = value;
             }
         }
         private bool mCustomerConfirmed;
@@ -82,13 +82,27 @@ namespace ClassLibrary
 
         public bool Find(int CustomerNo)
         {
-            mCustomerNo = 1021;
-            mCustomerName = "Test Name";
-            mCustomerEmail = "Test email";
-            mCustomerAddress = "This Street";
-            mDateJoined = Convert.ToDateTime("16/09/2023");
-            mCustomerConfirmed = true;
-            return true;
+            //create an instance of the data connection
+            clsDataConnection DB = new clsDataConnection();
+            //add the parameter for the address no to search for
+            DB.AddParameter("@CustomerNo", CustomerNo);
+            //execute the stored procedure
+            DB.Execute("sproc_tblCustomers_FilterByCustomerNo");
+            //if one recurd is found (there should be one or zero)
+            if (DB.Count == 1)
+            {
+                mCustomerNo = Convert.ToInt32(DB.DataTable.Rows[0]["CustomerNo"]);
+                mCustomerName = Convert.ToString(DB.DataTable.Rows[0]["CustomerName"]);
+                mCustomerEmail = Convert.ToString(DB.DataTable.Rows[0]["CustomerEmail"]);
+                mCustomerAddress = Convert.ToString(DB.DataTable.Rows[0]["CustomerAddress"]);
+                mCustomerDateJoined = Convert.ToDateTime(DB.DataTable.Rows[0]["CustomerDateJoined"]);
+                mCustomerConfirmed = Convert.ToBoolean(DB.DataTable.Rows[0]["CustomerConfirmed"]);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
