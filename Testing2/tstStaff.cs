@@ -22,7 +22,7 @@ namespace Testing2
             //create an instance of the class we want to create
             clsStaff Staff = new clsStaff();
             //create some test data to asign to the property
-            Int32 TestData = 123;
+            Int32 TestData = 8;
             //assign the data to the property
             Staff.StaffNo = TestData;
             //test to see that the two values are the same
@@ -48,7 +48,7 @@ namespace Testing2
             //see above test for comments
             clsStaff Staff = new clsStaff();
 
-            string TestData = "Alex@gmail.com";
+            string TestData = "Alex@email.com";
 
             Staff.StaffEmail = TestData;
 
@@ -87,13 +87,165 @@ namespace Testing2
             //see above test for comments
             clsStaff Staff = new clsStaff();
 
-            Int32 TestData = 123;
+            Int32 TestData = 2;
 
             Staff.ProductNo = TestData;
 
             Assert.AreEqual(Staff.ProductNo, TestData);
         }
 
+        [TestMethod]
+
+        public void FindMethodOK()
+        {
+            //create instance of class
+            clsStaff AStaff = new clsStaff();
+            //boolean to store the result of validation
+            Boolean Found = false;
+            //create the test data for the method
+            Int32 StaffNo = 8;
+            //invoke method
+            Found = AStaff.Find(StaffNo);
+            //test to see if true
+            Assert.IsTrue(Found);
+        }
+
+        [TestMethod]
+
+        public void TestStaffNoFound()
+        {
+            //create instance of the class
+            clsStaff AStaff = new clsStaff();
+            //boolean variable
+            Boolean Found = false;
+            //Boolean to record data
+            Boolean OK = true;
+            //test data
+            Int32 StaffNo = 8;
+            //invoke method
+            Found = AStaff.Find(StaffNo);
+            //check the staff no
+            if (AStaff.StaffNo != 8)
+            {
+                OK = false;
+            }
+            //test to see if result is correct
+            Assert.IsTrue(OK);
+
+        }
+        [TestMethod]
+        public void TestStaffDateFound()
+        {
+            //create instance of the class
+            clsStaff AStaff = new clsStaff();
+            //boolean variable
+            Boolean Found = false;
+            //Boolean to record data
+            Boolean OK = true;
+            //test data
+            Int32 StaffNo = 8;
+            //invoke method
+            Found = AStaff.Find(StaffNo);
+            //check the staff no
+            if (AStaff.StaffDate != Convert.ToDateTime("16/09/2015"))
+            {
+                OK = false;
+            }
+            //test to see if result is correct
+            Assert.IsTrue(OK);
+
+        }
+        [TestMethod]
+        public void TestStaffEmailFound()
+        {
+            //create instance of the class
+            clsStaff AStaff = new clsStaff();
+            //boolean variable
+            Boolean Found = false;
+            //Boolean to record data
+            Boolean OK = true;
+            //test data
+            Int32 StaffNo = 8;
+            //invoke method
+            Found = AStaff.Find(StaffNo);
+            //check the staff no
+            if (AStaff.StaffEmail != "Alex@email.com")
+            {
+                OK = false;
+            }
+            //test to see if result is correct
+            Assert.IsTrue(OK);
+
+        }
+        [TestMethod]
+        public void TestStaffAvailabilityFound()
+        {
+            //create instance of the class
+            clsStaff AStaff = new clsStaff();
+            //boolean variable
+            Boolean Found = false;
+            //Boolean to record data
+            Boolean OK = true;
+            //test data
+            Int32 StaffNo = 8;
+            //invoke method
+            Found = AStaff.Find(StaffNo);
+            //check the staff no
+            if (AStaff.StaffAvailability != true)
+            {
+                OK = false;
+            }
+            //test to see if result is correct
+            Assert.IsTrue(OK);
+
+        }
+        [TestMethod]
+        public void TestProductNoFound()
+        {
+            //create instance of the class
+            clsStaff AStaff = new clsStaff();
+            //boolean variable
+            Boolean Found = false;
+            //Boolean to record data
+            Boolean OK = true;
+            //test data
+            Int32 StaffNo = 8;
+            //invoke method
+            Found = AStaff.Find(StaffNo);
+            //check the staff no
+            
+            if (AStaff.ProductNo != 2)
+            {
+                OK = false;
+            }
+            
+            //test to see if result is correct
+            Assert.IsTrue(OK);
+
+        }
+
+        [TestMethod]
+        public void TestStaffNameFound()
+        {
+            //create instance of the class
+            clsStaff AStaff = new clsStaff();
+            //boolean variable
+            Boolean Found = false;
+            //Boolean to record data
+            Boolean OK = true;
+            //test data
+            Int32 StaffNo = 8;
+            //invoke method
+            Found = AStaff.Find(StaffNo);
+            //check the staff no
+            if (AStaff.StaffName != "Alex")
+            {
+                OK = false;
+            }
+            //test to see if result is correct
+            Assert.IsTrue(OK);
+
+        }
         public void TestMethod1()
         {
         }
