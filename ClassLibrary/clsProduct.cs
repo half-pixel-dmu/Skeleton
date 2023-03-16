@@ -42,8 +42,8 @@ namespace ClassLibrary
             }
         }
 
-        private float mProductPrice;
-        public float ProductPrice {
+        private double mProductPrice;
+        public double ProductPrice {
             get
             {
                 return mProductPrice;
@@ -90,17 +90,36 @@ namespace ClassLibrary
             }
         }
 
-        public bool Find(int productNo)
+        public bool Find(int ProductNumber)
         {
-            mProductNumber = 14;
-            mProductTitle = "Cleaning service";
-            mProductDescription = "Spot on cleaning details";
-            mProductPrice = 12;
-            mProductCreateDate = Convert.ToDateTime("14/03/2023");
-            mProductAvailability = true;
-            mStaffNo = 6;
+            // mProductNumber = 14;
+            // mProductTitle = "Cleaning service";
+            // mProductDescription = "Spot on cleaning details";
+            // mProductPrice = 12;
+            // mProductCreateDate = Convert.ToDateTime("14/03/2023");
+            // mProductAvailability = true;
+            // mStaffNo = 6;
 
-            return true;
+            clsDataConnection DB = new clsDataConnection();
+
+            DB.AddParameter("@ProductNumber", ProductNumber);
+
+            DB.Execute("sproc_tblProducts_FilterByProductNumber");
+
+            if (DB.Count == 1)
+            {
+                mProductNumber = Convert.ToInt32(DB.DataTable.Rows[0]["ProductNumber"]);
+                mProductTitle = Convert.ToString(DB.DataTable.Rows[0]["ProductTitle"]);
+                mProductDescription = Convert.ToString(DB.DataTable.Rows[0]["ProductDescription"]);
+                mProductPrice = Convert.ToDouble(DB.DataTable.Rows[0]["ProductPrice"]);
+                mProductCreateDate = Convert.ToDateTime(DB.DataTable.Rows[0]["ProductCreateDate"]);
+                mProductAvailability = Convert.ToBoolean(DB.DataTable.Rows[0]["ProductAvailability"]);
+                mStaffNo = Convert.ToInt32(DB.DataTable.Rows[0]["StaffNo"]);
+
+                return true;
+            }
+
+            return false;
         }
     }
 }
