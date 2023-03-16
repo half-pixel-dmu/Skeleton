@@ -98,5 +98,166 @@ namespace TestingProduct
 
             Assert.AreEqual(anProduct.StaffNo, staffNumber);
         }
+
+        [TestMethod]
+        public void FindMethodOK()
+        {
+            clsProduct anProduct = new clsProduct();
+
+            Boolean Found = false;
+
+            int ProductNo = 14;
+
+            Found = anProduct.Find(ProductNo);
+
+            Assert.IsTrue(Found);
+        }
+
+        [TestMethod]
+        public void TestProductNoFound()
+        {
+            clsProduct anProduct = new clsProduct();
+
+            Boolean Found = false;
+
+            Boolean OK = true;
+
+            int ProductNo = 14;
+
+            Found = anProduct.Find(ProductNo);
+
+            if (anProduct.ProductNumber != 14)
+            {
+                OK = false;
+            }
+
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestProductTitleFound()
+        {
+            clsProduct anProduct = new clsProduct();
+
+            Boolean Found = false;
+
+            Boolean OK = true;
+
+            int ProductNo = 14;
+
+            Found = anProduct.Find(ProductNo);
+
+            if (anProduct.ProductTitle != "Cleaning service")
+            {
+                OK = false;
+            }
+
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestProductDescriptionFound()
+        {
+            clsProduct anProduct = new clsProduct();
+
+            Boolean Found = false;
+
+            Boolean OK = true;
+
+            int ProductNo = 14;
+
+            Found = anProduct.Find(ProductNo);
+
+            if (anProduct.ProductDescription != "Spot on cleaning details")
+            {
+                OK = false;
+            }
+
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestProductPriceFound()
+        {
+            clsProduct anProduct = new clsProduct();
+
+            Boolean Found = false;
+
+            Boolean OK = true;
+
+            int ProductNo = 14;
+
+            Found = anProduct.Find(ProductNo);
+
+            if (anProduct.ProductPrice != 12)
+            {
+                OK = false;
+            }
+
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestProductCreateDateFound()
+        {
+            clsProduct anProduct = new clsProduct();
+
+            Boolean Found = false;
+
+            Boolean OK = true;
+
+            int ProductNo = 14;
+
+            Found = anProduct.Find(ProductNo);
+
+            if (anProduct.ProductCreateDate != Convert.ToDateTime("14/03/2023"))
+            {
+                OK = false;
+            }
+
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestProductAvailabilityFound()
+        {
+            clsProduct anProduct = new clsProduct();
+
+            Boolean Found = false;
+
+            Boolean OK = true;
+
+            int ProductNo = 14;
+
+            Found = anProduct.Find(ProductNo);
+
+            if (anProduct.ProductAvailability == false)
+            {
+                OK = false;
+            }
+
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestStaffNoFound()
+        {
+            clsProduct anProduct = new clsProduct();
+
+            Boolean Found = false;
+
+            Boolean OK = true;
+
+            int ProductNo = 14;
+
+            Found = anProduct.Find(ProductNo);
+
+            if (anProduct.StaffNo != 6)
+            {
+                OK = false;
+            }
+
+            Assert.IsTrue(OK);
+        }
     }
 }
