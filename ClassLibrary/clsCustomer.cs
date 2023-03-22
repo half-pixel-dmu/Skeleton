@@ -113,12 +113,12 @@ namespace ClassLibrary
 
             if( customerName.Length == 0)
             {
-                Error = Error + "The customer name may not be blank : ";
+                Error = Error + "The customer name may not be blank ";
             }
 
             if(customerName.Length > 250)
             {
-                Error = Error + "The customer name must be less than 50 characters : ";
+                Error = Error + "The customer name must be less than 250 characters ";
             }
             try
             {
@@ -132,7 +132,7 @@ namespace ClassLibrary
 
                 if (DateTemp > DateTime.Now.Date)
                 {
-                    Error = Error + "The date cannot be in the future: ";
+                    Error = Error + "The date cannot be in the future : ";
                 }
             }
             catch
@@ -142,22 +142,22 @@ namespace ClassLibrary
 
             if(customerAddress.Length == 0)
             {
-                Error = Error + "The address may not be blank";
+                Error = Error + "The address may not be blank : ";
             }
 
             if(customerAddress.Length > 250)
             {
-                Error = Error + "The address must be less than 250 characters";
+                Error = Error + "The address must be less than 250 characters : ";
             }
 
             if (customerEmail.Length == 0)
             {
-                Error = Error + "The email may not be blank";
+                Error = Error + "The email may not be blank : ";
             }
 
             if (customerEmail.Length > 250)
             {
-                Error = Error + "The email must be less than 250 characters";
+                Error = Error + "The email must be less than 250 characters : ";
             }
 
             return Error;

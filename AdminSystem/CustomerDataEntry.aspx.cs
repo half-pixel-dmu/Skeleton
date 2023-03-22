@@ -14,27 +14,39 @@ public partial class _1_DataEntry : System.Web.UI.Page
 
     }
 
-    protected void TextBox1_TextChanged(object sender, EventArgs e)
-    {
-
-    }
 
     protected void btnOK_Click(object sender, EventArgs e)
     {
         //create a new instance of clsCustomer
         clsCustomer AnCustomer = new clsCustomer();
         //capture the full name
-        
-        AnCustomer.CustomerName = txtCustomerName.Text;
-        AnCustomer.CustomerEmail = txtCustomerEmail.Text;
-        AnCustomer.CustomerAddress = txtCustomerAddress.Text;
-        AnCustomer.CustomerDateJoined = DateTime.Now.Date;
-        AnCustomer.CustomerConfirmed = chkActive.Checked;
 
-        //store the name in the session object
-        Session["AnCustomer"] = AnCustomer;
-        //navigate to the viewer page
-        Response.Redirect("CustomerViewer.aspx");
+        string CustomerName = txtCustomerName.Text;
+        string CustomerEmail = txtCustomerEmail.Text;
+        string CustomerAddress = txtCustomerAddress.Text;
+        string CustomerDateJoined = txtCustomerDateJoined.Text;
+
+        string Error = "";
+        Error = AnCustomer.Valid(CustomerName, CustomerEmail, CustomerAddress, CustomerDateJoined);
+
+        if (Error == "")
+        {
+            AnCustomer.CustomerName = CustomerName;
+            AnCustomer.CustomerEmail = CustomerEmail;
+            AnCustomer.CustomerAddress = CustomerAddress;
+            AnCustomer.CustomerDateJoined = Convert.ToDateTime(CustomerDateJoined);
+            AnCustomer.CustomerConfirmed = chkActive.Checked;
+
+            //store the name in the session object
+            Session["AnCustomer"] = AnCustomer;
+            //navigate to the viewer page
+            Response.Redirect("CustomerViewer.aspx");
+        }
+
+        else
+        {
+            lblError.Text = Error;
+        }
     }
 
     protected void btnFind_Click(object sender, EventArgs e)
