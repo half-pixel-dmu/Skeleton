@@ -92,14 +92,6 @@ namespace ClassLibrary
 
         public bool Find(int ProductNumber)
         {
-            // mProductNumber = 14;
-            // mProductTitle = "Cleaning service";
-            // mProductDescription = "Spot on cleaning details";
-            // mProductPrice = 12;
-            // mProductCreateDate = Convert.ToDateTime("14/03/2023");
-            // mProductAvailability = true;
-            // mStaffNo = 6;
-
             clsDataConnection DB = new clsDataConnection();
 
             DB.AddParameter("@ProductNumber", ProductNumber);
