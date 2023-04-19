@@ -113,5 +113,28 @@ namespace ClassLibrary
 
             return false;
         }
+
+        public string Valid(
+            string productTitle,
+            string productDescription,
+            string productPrice,
+            string productAvailability,
+            string staffNo
+            ) 
+        {
+            String Error = "";
+
+            if (productTitle.Length == 0)
+            {
+                Error = Error + "The product title may not be blank : ";
+            }
+
+            if (productTitle.Length > 250)
+            {
+                Error = Error + "The product title must be lestt than 250 characters : ";
+            }
+
+            return Error;
+        }
     }
 }

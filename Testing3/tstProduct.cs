@@ -7,6 +7,13 @@ namespace TestingProduct
     [TestClass]
     public class tstProduct
     {
+        // Good test data
+        string ProductTitle = "Cleaning service";
+        string ProductDescription = "A great cleaning service";
+        string ProductPrice = "12.5";
+        string ProductAvailability = "true";
+        string StaffNo = "3";
+
         [TestMethod]
         public void InstanceOK()
         {
@@ -258,6 +265,110 @@ namespace TestingProduct
             }
 
             Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void ValidMethodOK()
+        {
+            clsProduct anProduct = new clsProduct();
+
+            String Error = "";
+
+            Error = anProduct.Valid(ProductTitle, ProductDescription, ProductPrice, ProductAvailability, StaffNo);
+
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ProductTitleMinLessOne()
+        {
+            clsProduct anProduct = new clsProduct();
+
+            String Error = "";
+
+            Error = anProduct.Valid("", ProductDescription, ProductPrice, ProductAvailability, StaffNo);
+
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ProductTitleNoMin()
+        {
+            clsProduct anProduct = new clsProduct();
+
+            String Error = "";
+
+            Error = anProduct.Valid("a", ProductDescription, ProductPrice, ProductAvailability, StaffNo);
+
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ProductTitleNoMinPlusOne()
+        {
+            clsProduct anProduct = new clsProduct();
+
+            String Error = "";
+
+            Error = anProduct.Valid("aa", ProductDescription, ProductPrice, ProductAvailability, StaffNo);
+
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ProductTitleNoMaxLessOne()
+        {
+            clsProduct anProduct = new clsProduct();
+
+            String Error = "";
+
+            String Title = "".PadRight(249, 'a');
+
+            Error = anProduct.Valid(Title, ProductDescription, ProductPrice, ProductAvailability, StaffNo);
+
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ProductTitleNoMax()
+        {
+            clsProduct anProduct = new clsProduct();
+
+            String Error = "";
+
+            String Title = "".PadRight(250, 'a');
+
+            Error = anProduct.Valid(Title, ProductDescription, ProductPrice, ProductAvailability, StaffNo);
+
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ProductTitleNoMaxPlusOne()
+        {
+            clsProduct anProduct = new clsProduct();
+
+            String Error = "";
+
+            String Title = "".PadRight(251, 'a');
+
+            Error = anProduct.Valid(Title, ProductDescription, ProductPrice, ProductAvailability, StaffNo);
+
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ProductTitleNoExtremeMax()
+        {
+            clsProduct anProduct = new clsProduct();
+
+            String Error = "";
+
+            String Title = "".PadRight(500, 'a');
+
+            Error = anProduct.Valid(Title, ProductDescription, ProductPrice, ProductAvailability, StaffNo);
+
+            Assert.AreNotEqual(Error, "");
         }
     }
 }
