@@ -5,6 +5,7 @@ using System.Web;
 using System.Data.SqlClient;
 using System.Data.OleDb;
 using System.Data;
+using System.Configuration;
 //using ClassControlLib; -> class lib 
 
 ///This class uses the ado.net sql classes to provide a connection to an Azure sql server database.
@@ -35,6 +36,9 @@ public class clsDataConnection
     {
         System.Net.WebClient client = new System.Net.WebClient();
         string downloadString = client.DownloadString("http://localhost:5000/");
+        // To avoid using the buggy SQL Connect.exe file
+        // TODO: remove this later on
+        downloadString = "Data Source=v00egd00001l.lec-admin.dmu.ac.uk;Initial Catalog=p2682700;Persist Security Info=True;User ID=p2682700;Password=nice-password23";
         return downloadString;
     }
 

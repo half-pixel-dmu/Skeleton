@@ -106,7 +106,7 @@ namespace TestingProduct
 
             Boolean Found = false;
 
-            int ProductNo = 14;
+            int ProductNo = 2;
 
             Found = anProduct.Find(ProductNo);
 
@@ -122,16 +122,16 @@ namespace TestingProduct
 
             Boolean OK = true;
 
-            int ProductNo = 14;
+            int ProductNo = 99;
 
             Found = anProduct.Find(ProductNo);
 
-            if (anProduct.ProductNumber != 14)
+            if (anProduct.ProductNumber != 99)
             {
                 OK = false;
             }
 
-            Assert.IsTrue(OK);
+            Assert.IsFalse(OK);
         }
 
         [TestMethod]
@@ -143,11 +143,11 @@ namespace TestingProduct
 
             Boolean OK = true;
 
-            int ProductNo = 14;
+            int ProductNo = 2;
 
             Found = anProduct.Find(ProductNo);
 
-            if (anProduct.ProductTitle != "Cleaning service")
+            if (anProduct.ProductTitle != "Clean your house")
             {
                 OK = false;
             }
@@ -164,11 +164,11 @@ namespace TestingProduct
 
             Boolean OK = true;
 
-            int ProductNo = 14;
+            int ProductNo = 2;
 
             Found = anProduct.Find(ProductNo);
 
-            if (anProduct.ProductDescription != "Spot on cleaning details")
+            if (anProduct.ProductDescription != "A good cleaning service just for you")
             {
                 OK = false;
             }
@@ -185,11 +185,11 @@ namespace TestingProduct
 
             Boolean OK = true;
 
-            int ProductNo = 14;
+            int ProductNo = 2;
 
             Found = anProduct.Find(ProductNo);
 
-            if (anProduct.ProductPrice != 12)
+            if (anProduct.ProductPrice != 25)
             {
                 OK = false;
             }
@@ -206,11 +206,11 @@ namespace TestingProduct
 
             Boolean OK = true;
 
-            int ProductNo = 14;
+            int ProductNo = 2;
 
             Found = anProduct.Find(ProductNo);
 
-            if (anProduct.ProductCreateDate != Convert.ToDateTime("14/03/2023"))
+            if (anProduct.ProductCreateDate != Convert.ToDateTime("17/02/2023"))
             {
                 OK = false;
             }
@@ -227,7 +227,7 @@ namespace TestingProduct
 
             Boolean OK = true;
 
-            int ProductNo = 14;
+            int ProductNo = 2;
 
             Found = anProduct.Find(ProductNo);
 
@@ -248,11 +248,11 @@ namespace TestingProduct
 
             Boolean OK = true;
 
-            int ProductNo = 14;
+            int ProductNo = 2;
 
             Found = anProduct.Find(ProductNo);
 
-            if (anProduct.StaffNo != 6)
+            if (anProduct.StaffNo != 1)
             {
                 OK = false;
             }
