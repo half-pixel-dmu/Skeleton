@@ -41,32 +41,6 @@ namespace ClassLibrary
 
         public clsCustomerCollection()
         {
-    
-
-            //crate the items of the test data
-            clsCustomer TestItem = new clsCustomer();
-            //set its proprieties
-            TestItem.CustomerConfirmed = true;
-            TestItem.CustomerNo = 1001;
-            TestItem.CustomerAddress = "Not here, NG8 5LH";
-            TestItem.CustomerEmail = "daniel.hatel@yahoo.com";
-            TestItem.CustomerName = "Daniel Hatel";
-            TestItem.CustomerDateJoined = DateTime.Now.Date;
-            //add the item to the test list
-            mCustomerList.Add(TestItem);
-            //re initialise the object for some new data
-            TestItem = new clsCustomer();
-            //set it's properties
-            TestItem.CustomerConfirmed = false;
-            TestItem.CustomerNo = 1002;
-            TestItem.CustomerAddress = "This Street, LE 3 GB2";
-            TestItem.CustomerEmail = "anil.note@yahoo.com";
-            TestItem.CustomerName = "Anil Note";
-            TestItem.CustomerDateJoined = DateTime.Now.Date;
-
-        }
-        public clsCustomerCollection()
-        {
             //var for the index
             Int32 Index = 0;
             //var to store the record count
