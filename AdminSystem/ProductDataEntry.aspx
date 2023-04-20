@@ -14,6 +14,12 @@
 
     <form id="productForm" runat="server">
         
+        <asp:Label ID="lblProductNumber" runat="server" Text="ProductNumber"></asp:Label>
+        <asp:TextBox ID="txtProductNumber" runat="server"></asp:TextBox>
+        <asp:Button runat="server" Text="Find" OnClick="btnFind_Click" />
+
+        <br /><br />
+
         <asp:Label ID="lblTitle" runat="server" Text="Title"></asp:Label>
         <asp:TextBox ID="txtTitle" runat="server"></asp:TextBox>
 

@@ -13,6 +13,24 @@ public partial class ProductDataEntry : System.Web.UI.Page
 
     }
 
+    protected void btnFind_Click(object sender, EventArgs e)
+    {
+        clsProduct anProduct = new clsProduct();
+
+        int ProductNumber = Convert.ToInt32(txtProductNumber.Text);
+
+        Boolean Found = anProduct.Find(ProductNumber);
+
+        if (Found)
+        {
+            txtTitle.Text = anProduct.ProductTitle;
+            txtDescription.Text = anProduct.ProductDescription;
+            txtPrice.Text = anProduct.ProductPrice.ToString();
+            chkAvailability.Checked = anProduct.ProductAvailability;
+            txtStaff.Text = anProduct.StaffNo.ToString();
+        }
+    }
+
     protected void btnCreate_Click(object sender, EventArgs e)
     {
         clsProduct anProduct = new clsProduct();
