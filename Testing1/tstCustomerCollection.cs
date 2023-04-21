@@ -98,5 +98,69 @@ namespace Testing1
 
         }
 
+        [TestMethod]
+        public void AddMethodOK()
+        {
+            //create an instance of the class we want to create 
+            clsCustomerCollection AllCustomer = new clsCustomerCollection();
+            //create the item of the test data
+            clsCustomer TestItem = new clsCustomer();
+            //var to store the primary key
+            Int32 PrimaryKey = 0;
+            //set its properties
+            TestItem.CustomerConfirmed = true;
+            TestItem.CustomerNo = 100;
+            TestItem.CustomerAddress = "Some Street, NG3 8 HV";
+            TestItem.CustomerEmail = "pruna.nane@yahoo.com";
+            TestItem.CustomerName = "Pruna Nane";
+            TestItem.CustomerDateJoined = DateTime.Now.Date;
+            //set ThisCustomer to the test data
+            AllCustomer.ThisCustomer = TestItem;
+            //add the record
+            PrimaryKey = AllCustomer.Add();
+            //set the primary key of the test data
+            TestItem.CustomerNo = PrimaryKey;
+            //find the record
+            AllCustomer.ThisCustomer.Find(PrimaryKey);
+            //test to see thisCustomer matches the test data
+            Assert.AreEqual(AllCustomer.ThisCustomer, TestItem);
+        }
+
+        [TestMethod]
+        public void UpdateMethodOK()
+        {
+            //create an instance of the class we want to create 
+            clsCustomerCollection AllCustomer = new clsCustomerCollection();
+            //create the item of the test data
+            clsCustomer TestItem = new clsCustomer();
+            //var to store the primary key
+            Int32 PrimaryKey = 0;
+            //set its properties
+            TestItem.CustomerConfirmed = true;
+            TestItem.CustomerAddress = "Some Street, NG3 8 HV";
+            TestItem.CustomerEmail = "pruna.nane@yahoo.com";
+            TestItem.CustomerName = "Pruna Nane";
+            TestItem.CustomerDateJoined = DateTime.Now.Date;
+            //set ThisCustomer to the test data
+            AllCustomer.ThisCustomer = TestItem;
+            //add the record
+            PrimaryKey = AllCustomer.Add();
+            //set the primary key of the test data
+            TestItem.CustomerNo = PrimaryKey;
+            //modify the test data
+            TestItem.CustomerConfirmed = false;
+            TestItem.CustomerAddress = "Every Street, NG3 8 HV";
+            TestItem.CustomerEmail = "gina.tone@yahoo.com";
+            TestItem.CustomerName = "Gina Tone";
+            TestItem.CustomerDateJoined = DateTime.Now.Date;
+            //set the record based on the new test data
+            AllCustomer.ThisCustomer = TestItem;
+            //update the record
+            AllCustomer.Update();
+            //find the record
+            AllCustomer.ThisCustomer.Find(PrimaryKey);
+            //test to see thisCustomer matches the test data
+            Assert.AreEqual(AllCustomer.ThisCustomer, TestItem);
+        }
     }
 }
