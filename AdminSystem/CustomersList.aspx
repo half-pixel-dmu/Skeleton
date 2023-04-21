@@ -11,9 +11,11 @@
         <div>
         </div>
         <asp:ListBox ID="lstCustomerList" runat="server" Height="325px" Width="277px"></asp:ListBox>
+        
         <p>
             <asp:Button ID="btnAdd" runat="server" OnClick="btnAdd_Click" Text="Add" />
             <asp:Button ID="btnEdit" runat="server" Text="Edit" OnClick="btnEdit_Click" />
+            <asp:Button ID="btnDelete" runat="server" Text="Delete" OnClick="btnDelete_Click" />
         </p>
         <p>
             <asp:Label ID="lblError" runat="server" Text="lblError"></asp:Label>
