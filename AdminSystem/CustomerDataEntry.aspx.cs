@@ -91,13 +91,20 @@ public partial class _1_DataEntry : System.Web.UI.Page
 
     protected void btnFind_Click(object sender, EventArgs e)
     {
+        //crate an instance of the address class
         clsCustomer AnCustomer = new clsCustomer();
+        //variable to store the primary key
         Int32 CustomerNo;
+        //variable to store the result of the find operation
         Boolean Found = false;
+        //get the primary key entered by the user
         CustomerNo = Convert.ToInt32(txtCustomerNo.Text);
+        //find the record
         Found = AnCustomer.Find(CustomerNo);
+        //if found
         if(Found == true)
         {
+            //display the values of the properties in the form
             txtCustomerName.Text = AnCustomer.CustomerName;
             txtCustomerEmail.Text = AnCustomer.CustomerEmail;
             txtCustomerAddress.Text = AnCustomer.CustomerAddress;

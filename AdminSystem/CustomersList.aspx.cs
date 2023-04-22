@@ -49,7 +49,7 @@ public partial class _1_List : System.Web.UI.Page
         if(lstCustomerList.SelectedIndex != -1)
         {
             //get the primary key value of the record to edit
-            CustomerNo = Convert.ToInt32(lstCustomerList);
+            CustomerNo = Convert.ToInt32(lstCustomerList.SelectedValue);
             //store the data in the session object
             Session["CustomerNo"] = CustomerNo;
             //redirect to the edit page
@@ -80,5 +80,35 @@ public partial class _1_List : System.Web.UI.Page
             //display an error
             lblError.Text = "Please select a record to delete from the list";
         }
+    }
+
+    protected void btnApply_Click(object sender, EventArgs e)
+    {
+        //create an instance of the address collection
+        clsCustomerCollection Customer = new clsCustomerCollection();
+        Customer.ReportByCustomerAddress(txtFilter.Text);
+        lstCustomerList.DataSource = Customer.CustomerList;
+        //set the name of the primary key
+        lstCustomerList.DataValueField = "CustomerNo";
+        //set the name of the field to display
+        lstCustomerList.DataTextField = "CustomerAddress";
+        //bind the data to the list
+        lstCustomerList.DataBind();
+    }
+
+    protected void btnClear_Click(object sender, EventArgs e)
+    {
+        //create an instance of the customer collection
+        clsCustomerCollection Customer = new clsCustomerCollection();
+        Customer.ReportByCustomerAddress("");
+        //clear any existing filter to tidy up the interface
+        txtFilter.Text = "";
+        lstCustomerList.DataSource = Customer.CustomerList;
+        //set the name of the primary key
+        lstCustomerList.DataValueField = "CustomerNo";
+        //set the name of the field to display
+        lstCustomerList.DataTextField = "CustomerAddress";
+        //bind the data to the list
+        lstCustomerList.DataBind();
     }
 }
