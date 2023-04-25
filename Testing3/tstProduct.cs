@@ -274,7 +274,7 @@ namespace TestingProduct
 
             String Error = "";
 
-            Error = anProduct.Valid(ProductTitle, ProductDescription, ProductPrice, ProductAvailability, StaffNo);
+            Error = anProduct.Valid(ProductTitle, ProductDescription, ProductPrice, StaffNo);
 
             Assert.AreEqual(Error, "");
         }
@@ -286,7 +286,7 @@ namespace TestingProduct
 
             String Error = "";
 
-            Error = anProduct.Valid("", ProductDescription, ProductPrice, ProductAvailability, StaffNo);
+            Error = anProduct.Valid("", ProductDescription, ProductPrice, StaffNo);
 
             Assert.AreNotEqual(Error, "");
         }
@@ -298,7 +298,7 @@ namespace TestingProduct
 
             String Error = "";
 
-            Error = anProduct.Valid("a", ProductDescription, ProductPrice, ProductAvailability, StaffNo);
+            Error = anProduct.Valid("a", ProductDescription, ProductPrice, StaffNo);
 
             Assert.AreEqual(Error, "");
         }
@@ -310,7 +310,7 @@ namespace TestingProduct
 
             String Error = "";
 
-            Error = anProduct.Valid("aa", ProductDescription, ProductPrice, ProductAvailability, StaffNo);
+            Error = anProduct.Valid("aa", ProductDescription, ProductPrice, StaffNo);
 
             Assert.AreEqual(Error, "");
         }
@@ -324,7 +324,7 @@ namespace TestingProduct
 
             String Title = "".PadRight(249, 'a');
 
-            Error = anProduct.Valid(Title, ProductDescription, ProductPrice, ProductAvailability, StaffNo);
+            Error = anProduct.Valid(Title, ProductDescription, ProductPrice, StaffNo);
 
             Assert.AreEqual(Error, "");
         }
@@ -338,7 +338,7 @@ namespace TestingProduct
 
             String Title = "".PadRight(250, 'a');
 
-            Error = anProduct.Valid(Title, ProductDescription, ProductPrice, ProductAvailability, StaffNo);
+            Error = anProduct.Valid(Title, ProductDescription, ProductPrice, StaffNo);
 
             Assert.AreEqual(Error, "");
         }
@@ -352,7 +352,7 @@ namespace TestingProduct
 
             String Title = "".PadRight(251, 'a');
 
-            Error = anProduct.Valid(Title, ProductDescription, ProductPrice, ProductAvailability, StaffNo);
+            Error = anProduct.Valid(Title, ProductDescription, ProductPrice, StaffNo);
 
             Assert.AreNotEqual(Error, "");
         }
@@ -366,7 +366,7 @@ namespace TestingProduct
 
             String Title = "".PadRight(500, 'a');
 
-            Error = anProduct.Valid(Title, ProductDescription, ProductPrice, ProductAvailability, StaffNo);
+            Error = anProduct.Valid(Title, ProductDescription, ProductPrice, StaffNo);
 
             Assert.AreNotEqual(Error, "");
         }
@@ -378,7 +378,7 @@ namespace TestingProduct
 
             String Error = "";
 
-            Error = anProduct.Valid(ProductTitle, "", ProductPrice, ProductAvailability, StaffNo);
+            Error = anProduct.Valid(ProductTitle, "", ProductPrice, StaffNo);
 
             Assert.AreNotEqual(Error, "");
         }
@@ -390,7 +390,7 @@ namespace TestingProduct
 
             String Error = "";
 
-            Error = anProduct.Valid(ProductTitle, "a", ProductPrice, ProductAvailability, StaffNo);
+            Error = anProduct.Valid(ProductTitle, "a", ProductPrice, StaffNo);
 
             Assert.AreEqual(Error, "");
         }
@@ -402,7 +402,7 @@ namespace TestingProduct
 
             String Error = "";
 
-            Error = anProduct.Valid(ProductTitle, "aa", ProductPrice, ProductAvailability, StaffNo);
+            Error = anProduct.Valid(ProductTitle, "aa", ProductPrice, StaffNo);
 
             Assert.AreEqual(Error, "");
         }
@@ -416,7 +416,7 @@ namespace TestingProduct
 
             String Description = "".PadRight(249, 'a');
 
-            Error = anProduct.Valid(ProductTitle, Description, ProductPrice, ProductAvailability, StaffNo);
+            Error = anProduct.Valid(ProductTitle, Description, ProductPrice, StaffNo);
 
             Assert.AreEqual(Error, "");
         }
@@ -430,7 +430,7 @@ namespace TestingProduct
 
             String Description = "".PadRight(250, 'a');
 
-            Error = anProduct.Valid(ProductTitle, Description, ProductPrice, ProductAvailability, StaffNo);
+            Error = anProduct.Valid(ProductTitle, Description, ProductPrice, StaffNo);
 
             Assert.AreEqual(Error, "");
         }
@@ -444,7 +444,7 @@ namespace TestingProduct
 
             String Description = "".PadRight(251, 'a');
 
-            Error = anProduct.Valid(ProductTitle, Description, ProductPrice, ProductAvailability, StaffNo);
+            Error = anProduct.Valid(ProductTitle, Description, ProductPrice, StaffNo);
 
             Assert.AreNotEqual(Error, "");
         }
@@ -458,7 +458,7 @@ namespace TestingProduct
 
             String Description = "".PadRight(500, 'a');
 
-            Error = anProduct.Valid(ProductTitle, Description, ProductPrice, ProductAvailability, StaffNo);
+            Error = anProduct.Valid(ProductTitle, Description, ProductPrice, StaffNo);
 
             Assert.AreNotEqual(Error, "");
         }
@@ -470,7 +470,7 @@ namespace TestingProduct
 
             String Error = "";
 
-            Error = anProduct.Valid(ProductTitle, ProductDescription, "", ProductAvailability, StaffNo);
+            Error = anProduct.Valid(ProductTitle, ProductDescription, "", StaffNo);
 
             Assert.AreNotEqual(Error, "");
         }
@@ -482,7 +482,7 @@ namespace TestingProduct
 
             String Error = "";
 
-            Error = anProduct.Valid(ProductTitle, ProductDescription, "0.01", ProductAvailability, StaffNo);
+            Error = anProduct.Valid(ProductTitle, ProductDescription, "0.01", StaffNo);
 
             Assert.AreEqual(Error, "");
         }
@@ -494,7 +494,7 @@ namespace TestingProduct
 
             String Error = "";
 
-            Error = anProduct.Valid(ProductTitle, ProductDescription, "1.50", ProductAvailability, StaffNo);
+            Error = anProduct.Valid(ProductTitle, ProductDescription, "1.50", StaffNo);
 
             Assert.AreEqual(Error, "");
         }
@@ -508,7 +508,7 @@ namespace TestingProduct
 
             String Price = "9998";
 
-            Error = anProduct.Valid(ProductTitle, ProductDescription, Price, ProductAvailability, StaffNo);
+            Error = anProduct.Valid(ProductTitle, ProductDescription, Price, StaffNo);
 
             Assert.AreEqual(Error, "");
         }
@@ -522,7 +522,7 @@ namespace TestingProduct
 
             String Price = "9999";
 
-            Error = anProduct.Valid(ProductTitle, ProductDescription, Price, ProductAvailability, StaffNo);
+            Error = anProduct.Valid(ProductTitle, ProductDescription, Price, StaffNo);
 
             Assert.AreEqual(Error, "");
         }
@@ -536,7 +536,7 @@ namespace TestingProduct
 
             String Price = "10000";
 
-            Error = anProduct.Valid(ProductTitle, ProductDescription, Price, ProductAvailability, StaffNo);
+            Error = anProduct.Valid(ProductTitle, ProductDescription, Price, StaffNo);
 
             Assert.AreNotEqual(Error, "");
         }
@@ -550,49 +550,7 @@ namespace TestingProduct
 
             String Price = "999999";
 
-            Error = anProduct.Valid(ProductTitle, ProductDescription, Price, ProductAvailability, StaffNo);
-
-            Assert.AreNotEqual(Error, "");
-        }
-
-        [TestMethod]
-        public void ProductAvailabilityFalse()
-        {
-            clsProduct anProduct = new clsProduct();
-
-            String Error = "";
-
-            String Availability = "false";
-
-            Error = anProduct.Valid(ProductTitle, ProductDescription, ProductPrice, Availability, StaffNo);
-
-            Assert.AreEqual(Error, "");
-        }
-
-        [TestMethod]
-        public void ProductAvailabilityTrue()
-        {
-            clsProduct anProduct = new clsProduct();
-
-            String Error = "";
-
-            String Availability = "true";
-
-            Error = anProduct.Valid(ProductTitle, ProductDescription, ProductPrice, Availability, StaffNo);
-
-            Assert.AreEqual(Error, "");
-        }
-
-        [TestMethod]
-        public void ProductAvailabilityInvalid()
-        {
-            clsProduct anProduct = new clsProduct();
-
-            String Error = "";
-
-            String Availability = "abc";
-
-            Error = anProduct.Valid(ProductTitle, ProductDescription, ProductPrice, Availability, StaffNo);
+            Error = anProduct.Valid(ProductTitle, ProductDescription, Price, StaffNo);
 
             Assert.AreNotEqual(Error, "");
         }
@@ -604,7 +562,7 @@ namespace TestingProduct
 
             String Error = "";
 
-            Error = anProduct.Valid(ProductTitle, ProductDescription, ProductPrice, ProductAvailability, "");
+            Error = anProduct.Valid(ProductTitle, ProductDescription, ProductPrice, "");
 
             Assert.AreNotEqual(Error, "");
         }
@@ -616,7 +574,7 @@ namespace TestingProduct
 
             String Error = "";
 
-            Error = anProduct.Valid(ProductTitle, ProductDescription, ProductPrice, ProductAvailability, "1");
+            Error = anProduct.Valid(ProductTitle, ProductDescription, ProductPrice, "1");
 
             Assert.AreEqual(Error, "");
         }
@@ -628,7 +586,7 @@ namespace TestingProduct
 
             String Error = "";
 
-            Error = anProduct.Valid(ProductTitle, ProductDescription, ProductPrice, ProductAvailability, "2");
+            Error = anProduct.Valid(ProductTitle, ProductDescription, ProductPrice, "2");
 
             Assert.AreEqual(Error, "");
         }

@@ -114,7 +114,6 @@ namespace ClassLibrary
             string productTitle,
             string productDescription,
             string productPrice,
-            string productAvailability,
             string staffNo
             ) 
         {
@@ -151,18 +150,10 @@ namespace ClassLibrary
                 {
                     Error = Error + "The product price must be less than 9999 : ";
                 }
-            } catch
-            {
-                Error = Error + "The price was not valid : ";
-            }
-
-            try
-            {
-                Boolean tryConvertBoolean = Convert.ToBoolean(productAvailability);
-            }
+            } 
             catch
             {
-                Error = Error + "The availability was not valid : ";
+                Error = Error + "The price was not valid : ";
             }
 
             try
