@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ClassLibrary
 {
@@ -112,6 +108,67 @@ namespace ClassLibrary
             }
 
             return false;
+        }
+
+        public string Valid(
+            string productTitle,
+            string productDescription,
+            string productPrice,
+            string staffNo
+            ) 
+        {
+            String Error = "";
+
+            if (productTitle.Length == 0)
+            {
+                Error = Error + "The product title may not be blank : ";
+            }
+
+            if (productTitle.Length > 250)
+            {
+                Error = Error + "The product title must be less than 250 characters : ";
+            }
+
+            if (productDescription.Length == 0)
+            {
+                Error = Error + "The product description may not be blank : ";
+            }
+
+            if (productDescription.Length > 250)
+            {
+                Error = Error + "The product description must be less than 250 characters : ";
+            }
+
+            try
+            {
+                if (Convert.ToDouble(productPrice).CompareTo(0) == 0)
+                {
+                    Error = Error + "The product price needs to be bigger than 0 : ";
+                }
+
+                if (Convert.ToDouble(productPrice).CompareTo(9999) > 0)
+                {
+                    Error = Error + "The product price must be less than 9999 : ";
+                }
+            } 
+            catch
+            {
+                Error = Error + "The price was not valid : ";
+            }
+
+            try
+            {
+                if (Convert.ToInt32(staffNo) <= 0)
+                {
+                    Error = Error + "The staff number needs to be bigger than 0 : ";
+                }
+            }
+            catch
+            {
+                Error = Error + "The staff number was not valid : ";
+            }
+
+            return Error;
         }
     }
 }

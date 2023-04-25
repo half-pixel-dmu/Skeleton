@@ -1,10 +1,5 @@
 ﻿using ClassLibrary;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 public partial class ProductDataEntry : System.Web.UI.Page
 {
@@ -34,16 +29,33 @@ public partial class ProductDataEntry : System.Web.UI.Page
     protected void btnCreate_Click(object sender, EventArgs e)
     {
         clsProduct anProduct = new clsProduct();
+        
+        string ProductTitle = txtTitle.Text;
+        string ProductDescription = txtDescription.Text;
+        string ProductPrice = txtPrice.Text;
+        string StaffNo = txtStaff.Text;
 
-        anProduct.ProductTitle = txtTitle.Text;
-        anProduct.ProductDescription = txtDescription.Text;
-        anProduct.ProductPrice = float.Parse(txtPrice.Text);
-        anProduct.ProductAvailability = chkAvailability.Checked;
-        anProduct.StaffNo = int.Parse(txtStaff.Text);
+        string Error = "";
 
-        Session["AnProduct"] = anProduct;
+        Error = anProduct.Valid(ProductTitle, ProductDescription, ProductPrice, StaffNo);
 
-        // Navigate to view product page
-        Response.Redirect("ProductViewer.aspx");
+        if (Error == "")
+        {
+            anProduct.ProductTitle = ProductTitle;
+            anProduct.ProductDescription = ProductDescription;
+            anProduct.ProductPrice = Convert.ToDouble(ProductPrice);
+            anProduct.ProductAvailability = chkAvailability.Checked;
+            anProduct.StaffNo = int.Parse(StaffNo);
+
+            Session["AnProduct"] = anProduct;
+
+            // Navigate to view product page
+            Response.Redirect("ProductViewer.aspx");
+        } 
+        else
+        {
+            // Display the error message to the user
+            lblError.Text = Error;
+        }
     }
 }
