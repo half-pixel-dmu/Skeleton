@@ -11,7 +11,6 @@ namespace TestingProduct
         string ProductTitle = "Cleaning service";
         string ProductDescription = "A great cleaning service";
         string ProductPrice = "12.5";
-        string ProductAvailability = "true";
         string StaffNo = "3";
 
         [TestMethod]
