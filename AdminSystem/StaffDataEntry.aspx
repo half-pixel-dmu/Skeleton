@@ -26,13 +26,15 @@
              <asp:TextBox ID="txtStaffDate" runat="server" style="z-index: 1; left: 143px; top: 127px; position: absolute; width: 218px; height: 22px; bottom: 101px;"></asp:TextBox>
             <asp:CheckBox ID="chkAvailability" runat="server" style="z-index: 1; left: 12px; top: 207px; position: absolute; width: 225px; height: 22px" Text="Availability" />
         </p>
-        <asp:Label ID="lvlError" runat="server" style="z-index: 1; left: 10px; top: 249px; position: absolute; height: 20px; width: 63px; bottom: 597px" Text="[lblError]"></asp:Label>
         <asp:Button ID="btnOK" runat="server" style="z-index: 1; left: 12px; top: 284px; position: absolute; height: 23px; width: 39px" Text="OK" OnClick="btnOK_Click" />
         <asp:Button ID="btnCancel" runat="server" style="z-index: 1; left: 64px; top: 285px; position: absolute; height: 24px; width: 68px" Text="Cancel" />
-    </form>
-    <p>
-&nbsp;</p>
     <p>
         &nbsp;</p>
-</body>
+    <p>
+        &nbsp;</p>
+        <p>
+            <asp:Label ID="lblError" runat="server" Text="lblError"></asp:Label>
+        </p>
+    </form>
+    </body>
 </html>

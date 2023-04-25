@@ -106,5 +106,69 @@ namespace ClassLibrary
 
             return false;
         }
+
+        public string Valid(string staffName,
+                            string staffEmail,
+                            string staffDate,
+                            string productNo)
+        {
+            //create a string variable to store the error
+            String Error = "";
+            //create a temporary variable to store date values
+            DateTime DateTemp;
+            //if the StaffName is blank
+            if (staffName.Length == 0)
+            {
+                //record the error
+                Error = Error + "The staff name may not be blank : ";
+            }
+            //if the StaffName is greater than 100 characters
+            if (staffName.Length > 100)
+            {
+                Error = Error + "The Staff Name must be less than 100 characters : ";
+            }
+            try
+            {
+                //copy the dateAdded value to the DateTemp variable
+                DateTemp = Convert.ToDateTime(staffDate);
+                if (DateTemp < DateTime.Now.Date)
+                {
+                    //record error
+                    Error = Error + "The date cannot be in the past : ";
+                }
+                //check if the date is greater than today's date
+                if (DateTemp > DateTime.Now.Date)
+                {
+                    //record error
+                    Error = Error + "The date cannot be in the future : ";
+                }
+            }
+            catch
+            {
+                //record the error
+                Error = Error + "The date was not a valid date : ";
+            }
+
+            //if the StaffEmail is blank
+            if (staffEmail.Length == 0)
+            {
+                //record the error
+                Error = Error + "The staff email may not be blank : ";
+            }
+            //if the StaffEmail is greater than 100 characters
+            if (staffEmail.Length > 250)
+            {
+                Error = Error + "The Staff email must be less than 250 characters : ";
+            }
+
+            //if the ProductNo is blank
+            if (productNo.Length == 0)
+            {
+                //record the error
+                Error = Error + "The productNo may not be blank : ";
+            }
+            //return any error messages
+            return Error;
+        }
     }
 }
