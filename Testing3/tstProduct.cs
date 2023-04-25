@@ -370,5 +370,267 @@ namespace TestingProduct
 
             Assert.AreNotEqual(Error, "");
         }
+
+        [TestMethod]
+        public void ProductDescriptionMinLessOne()
+        {
+            clsProduct anProduct = new clsProduct();
+
+            String Error = "";
+
+            Error = anProduct.Valid(ProductTitle, "", ProductPrice, ProductAvailability, StaffNo);
+
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ProductDescriptionNoMin()
+        {
+            clsProduct anProduct = new clsProduct();
+
+            String Error = "";
+
+            Error = anProduct.Valid(ProductTitle, "a", ProductPrice, ProductAvailability, StaffNo);
+
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ProductDescriptionNoMinPlusOne()
+        {
+            clsProduct anProduct = new clsProduct();
+
+            String Error = "";
+
+            Error = anProduct.Valid(ProductTitle, "aa", ProductPrice, ProductAvailability, StaffNo);
+
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ProductDescriptionNoMaxLessOne()
+        {
+            clsProduct anProduct = new clsProduct();
+
+            String Error = "";
+
+            String Description = "".PadRight(249, 'a');
+
+            Error = anProduct.Valid(ProductTitle, Description, ProductPrice, ProductAvailability, StaffNo);
+
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ProductDescriptionNoMax()
+        {
+            clsProduct anProduct = new clsProduct();
+
+            String Error = "";
+
+            String Description = "".PadRight(250, 'a');
+
+            Error = anProduct.Valid(ProductTitle, Description, ProductPrice, ProductAvailability, StaffNo);
+
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ProductDescriptionNoMaxPlusOne()
+        {
+            clsProduct anProduct = new clsProduct();
+
+            String Error = "";
+
+            String Description = "".PadRight(251, 'a');
+
+            Error = anProduct.Valid(ProductTitle, Description, ProductPrice, ProductAvailability, StaffNo);
+
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ProductDescriptionNoExtremeMax()
+        {
+            clsProduct anProduct = new clsProduct();
+
+            String Error = "";
+
+            String Description = "".PadRight(500, 'a');
+
+            Error = anProduct.Valid(ProductTitle, Description, ProductPrice, ProductAvailability, StaffNo);
+
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ProductPriceMinLessOne()
+        {
+            clsProduct anProduct = new clsProduct();
+
+            String Error = "";
+
+            Error = anProduct.Valid(ProductTitle, ProductDescription, "", ProductAvailability, StaffNo);
+
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ProductPriceNoMin()
+        {
+            clsProduct anProduct = new clsProduct();
+
+            String Error = "";
+
+            Error = anProduct.Valid(ProductTitle, ProductDescription, "0.01", ProductAvailability, StaffNo);
+
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ProductPriceNoMinPlusOne()
+        {
+            clsProduct anProduct = new clsProduct();
+
+            String Error = "";
+
+            Error = anProduct.Valid(ProductTitle, ProductDescription, "1.50", ProductAvailability, StaffNo);
+
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ProductPriceNoMaxLessOne()
+        {
+            clsProduct anProduct = new clsProduct();
+
+            String Error = "";
+
+            String Price = "9998";
+
+            Error = anProduct.Valid(ProductTitle, ProductDescription, Price, ProductAvailability, StaffNo);
+
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ProductPriceNoMax()
+        {
+            clsProduct anProduct = new clsProduct();
+
+            String Error = "";
+
+            String Price = "9999";
+
+            Error = anProduct.Valid(ProductTitle, ProductDescription, Price, ProductAvailability, StaffNo);
+
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ProductPriceNoMaxPlusOne()
+        {
+            clsProduct anProduct = new clsProduct();
+
+            String Error = "";
+
+            String Price = "10000";
+
+            Error = anProduct.Valid(ProductTitle, ProductDescription, Price, ProductAvailability, StaffNo);
+
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ProductPriceNoExtremeMax()
+        {
+            clsProduct anProduct = new clsProduct();
+
+            String Error = "";
+
+            String Price = "999999";
+
+            Error = anProduct.Valid(ProductTitle, ProductDescription, Price, ProductAvailability, StaffNo);
+
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ProductAvailabilityFalse()
+        {
+            clsProduct anProduct = new clsProduct();
+
+            String Error = "";
+
+            String Availability = "false";
+
+            Error = anProduct.Valid(ProductTitle, ProductDescription, ProductPrice, Availability, StaffNo);
+
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ProductAvailabilityTrue()
+        {
+            clsProduct anProduct = new clsProduct();
+
+            String Error = "";
+
+            String Availability = "true";
+
+            Error = anProduct.Valid(ProductTitle, ProductDescription, ProductPrice, Availability, StaffNo);
+
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ProductAvailabilityInvalid()
+        {
+            clsProduct anProduct = new clsProduct();
+
+            String Error = "";
+
+            String Availability = "abc";
+
+            Error = anProduct.Valid(ProductTitle, ProductDescription, ProductPrice, Availability, StaffNo);
+
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StaffNoMinLessOne()
+        {
+            clsProduct anProduct = new clsProduct();
+
+            String Error = "";
+
+            Error = anProduct.Valid(ProductTitle, ProductDescription, ProductPrice, ProductAvailability, "");
+
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StaffNoNoMin()
+        {
+            clsProduct anProduct = new clsProduct();
+
+            String Error = "";
+
+            Error = anProduct.Valid(ProductTitle, ProductDescription, ProductPrice, ProductAvailability, "1");
+
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StaffNoNoMinPlusOne()
+        {
+            clsProduct anProduct = new clsProduct();
+
+            String Error = "";
+
+            Error = anProduct.Valid(ProductTitle, ProductDescription, ProductPrice, ProductAvailability, "2");
+
+            Assert.AreEqual(Error, "");
+        }
     }
 }
