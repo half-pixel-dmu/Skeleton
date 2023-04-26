@@ -100,5 +100,14 @@ namespace ClassLibrary
 
             DB.Execute("sproc_tblProducts_Update");
         }
+
+        public void Delete()
+        {
+            clsDataConnection DB = new clsDataConnection();
+
+            DB.AddParameter("@ProductNumber", mThisProduct.ProductNumber);
+
+            DB.Execute("sproc_tblProducts_Delete");
+        }
     }
 }
