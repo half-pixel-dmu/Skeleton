@@ -47,10 +47,16 @@ public partial class ProductDataEntry : System.Web.UI.Page
             anProduct.ProductAvailability = chkAvailability.Checked;
             anProduct.StaffNo = int.Parse(StaffNo);
 
-            Session["AnProduct"] = anProduct;
+            // Session["AnProduct"] = anProduct;
+
+            clsProductCollection ProductList = new clsProductCollection();
+
+            ProductList.ThisProduct = anProduct;
+
+            ProductList.Add();
 
             // Navigate to view product page
-            Response.Redirect("ProductViewer.aspx");
+            Response.Redirect("ProductsList.aspx");
         } 
         else
         {

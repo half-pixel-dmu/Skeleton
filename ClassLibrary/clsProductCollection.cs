@@ -30,7 +30,19 @@ namespace ClassLibrary
                 // Worry about this later
             }
         }
-        public clsProduct ThisProduct { get; set; }
+
+        private clsProduct mThisProduct;
+        public clsProduct ThisProduct
+        {
+            get
+            {
+                return mThisProduct;
+            }
+            set
+            {
+                mThisProduct = value;
+            }
+        }
 
         public clsProductCollection() 
         {
@@ -60,6 +72,20 @@ namespace ClassLibrary
 
                 Index++;
             }
+        }
+
+        public int Add()
+        {
+            clsDataConnection DB = new clsDataConnection();
+
+            // TODO: create procedure and map fields correctly
+            DB.AddParameter("@ProductTitle", mThisProduct.ProductTitle);
+            DB.AddParameter("@ProductTitle", mThisProduct.ProductDescription);
+            DB.AddParameter("@ProductTitle", mThisProduct.ProductPrice);
+            DB.AddParameter("@ProductTitle", mThisProduct.ProductAvailability);
+            DB.AddParameter("@ProductTitle", mThisProduct.StaffNo);
+
+            return DB.Execute("sproc_tblProducts_Insert");
         }
     }
 }

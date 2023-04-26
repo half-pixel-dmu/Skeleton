@@ -77,5 +77,29 @@ namespace TestingProduct
 
             Assert.AreEqual(AllProducts.Count, TestList.Count);
         }
+
+        [TestMethod]
+        public void AddMethodOK()
+        {
+            clsProductCollection AllProducts = new clsProductCollection();
+
+            clsProduct TestItem = new clsProduct();
+
+            int PrimaryKey = 0;
+
+            TestItem.ProductTitle = "nice title";
+            TestItem.ProductDescription = "nice description";
+            TestItem.ProductPrice = 12.5;
+            TestItem.ProductAvailability = true;
+            TestItem.StaffNo = 2;
+
+            AllProducts.ThisProduct = TestItem;
+
+            PrimaryKey = AllProducts.Add();
+
+            AllProducts.ThisProduct.Find(PrimaryKey);
+
+            Assert.AreEqual(AllProducts.ThisProduct, TestItem);
+        }
     }
 }
