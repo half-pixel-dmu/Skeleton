@@ -5,7 +5,7 @@ namespace ClassLibrary
 {
     public class clsProductCollection
     {
-        private List<clsProduct> mProductList;
+        private List<clsProduct> mProductList = new List<clsProduct>();
         public List<clsProduct> ProductList
         {
             get
@@ -31,7 +31,7 @@ namespace ClassLibrary
             }
         }
 
-        private clsProduct mThisProduct;
+        private clsProduct mThisProduct = new clsProduct();
         public clsProduct ThisProduct
         {
             get
@@ -78,14 +78,27 @@ namespace ClassLibrary
         {
             clsDataConnection DB = new clsDataConnection();
 
-            // TODO: create procedure and map fields correctly
             DB.AddParameter("@ProductTitle", mThisProduct.ProductTitle);
-            DB.AddParameter("@ProductTitle", mThisProduct.ProductDescription);
-            DB.AddParameter("@ProductTitle", mThisProduct.ProductPrice);
-            DB.AddParameter("@ProductTitle", mThisProduct.ProductAvailability);
-            DB.AddParameter("@ProductTitle", mThisProduct.StaffNo);
+            DB.AddParameter("@ProductDescription", mThisProduct.ProductDescription);
+            DB.AddParameter("@ProductPrice", mThisProduct.ProductPrice);
+            DB.AddParameter("@ProductAvailability", mThisProduct.ProductAvailability);
+            DB.AddParameter("@StaffNo", mThisProduct.StaffNo);
 
             return DB.Execute("sproc_tblProducts_Insert");
+        }
+
+        public void Update()
+        {
+            clsDataConnection DB = new clsDataConnection();
+
+            DB.AddParameter("@ProductNumber", mThisProduct.ProductNumber);
+            DB.AddParameter("@ProductTitle", mThisProduct.ProductTitle);
+            DB.AddParameter("@ProductDescription", mThisProduct.ProductDescription);
+            DB.AddParameter("@ProductPrice", mThisProduct.ProductPrice);
+            DB.AddParameter("@ProductAvailability", mThisProduct.ProductAvailability);
+            DB.AddParameter("@StaffNo", mThisProduct.StaffNo);
+
+            DB.Execute("sproc_tblProducts_Update");
         }
     }
 }

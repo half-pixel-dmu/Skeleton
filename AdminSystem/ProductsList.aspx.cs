@@ -35,4 +35,22 @@ public partial class _1_List : System.Web.UI.Page
 
         Response.Redirect("ProductDataEntry.aspx");
     }
+    
+    protected void btnEdit_Click(object sender, EventArgs e)
+    {
+        int ProductNumber;
+
+        if (lstProductsList.SelectedIndex != -1)
+        {
+            ProductNumber = Convert.ToInt32(lstProductsList.SelectedValue);
+
+            Session["ProductNumber"] = ProductNumber;
+
+            Response.Redirect("ProductDataEntry.aspx");
+        } 
+        else
+        {
+            lblError.Text = "Please select a record to edit from the list";
+        }
+    }
 }
