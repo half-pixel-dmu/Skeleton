@@ -35,6 +35,7 @@
             Create a new Order</p>
         <p class="auto-style5" id="lblOrderNo">
             Order No<asp:TextBox ID="txtOrderNo" runat="server" style="z-index: 1; top: 114px; position: absolute"></asp:TextBox>
+            <asp:Button ID="btnFind" runat="server" style="z-index: 1; left: 227px; top: 115px; position: absolute" Text="Find" />
         </p>
         <p class="auto-style5" id="lblCustomerNo">
             Customer No<asp:TextBox ID="txtCustomerNo" runat="server" style="z-index: 1; top: 168px; position: absolute"></asp:TextBox>

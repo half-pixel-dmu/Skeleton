@@ -12,7 +12,7 @@ namespace TestingCustomer
     [TestClass]
     public class tstCustomer
     {
-        string CustomerNo = "1001";
+        string CustomerNo = "2";
         string CustomerName = "Daniel Hatel";
         string CustomerEmail = "daniel.hatel@yahoo.com";
         string CustomerAddress = "Not here, NG8 5LH";
