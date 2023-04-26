@@ -149,16 +149,21 @@ namespace ClassLibrary
             {
                 Error = Error + "The Product id must be less than 50 characters : ";
             }
-            if (OrderPrice = 0)
+            if (OrderPrice.Length == 0)
             {
                 Error = Error + "The product cannot be free";
 
             }
-            if (OrderStatus = 0)
+            if (OrderStatus.Length == 0)
             {
                 Error = Error + "The order need to present a status";
             }
             return Error;
+        }
+
+        public string Valid(string customerNo, string orderDate, string productId, string orderPrice, object orderStatus)
+        {
+            return "";
         }
     }
 }
