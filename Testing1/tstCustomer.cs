@@ -158,7 +158,7 @@ namespace TestingCustomer
             Boolean OK = true;
             Int32 CustomerNo = 1001;
             Found = AnCustomer.Find(CustomerNo);
-            if (AnCustomer.CustomerEmail != "daniel.hatel@yahoo.com")
+            if(AnCustomer.CustomerEmail != "daniel.hatel@yahoo.com                            ")
             {
                 OK = false;
             }
