@@ -174,7 +174,7 @@ namespace Testing2
             TestItem.StaffName = "Alex";
             TestItem.StaffEmail = "Alex@email.com";
             TestItem.StaffDate = DateTime.Now.Date;
-            TestItem.ProductNo = 1;
+            TestItem.ProductNo = 2;
             //set thisStaff to the test data
             AllStaff.ThisStaff = TestItem;
             //add the record
@@ -223,17 +223,17 @@ namespace Testing2
             //var to store outcome
             Boolean OK = true;
             //apply a name that doesn't exist
-            FilteredStaffs.ReportByName("xx");
+            FilteredStaffs.ReportByName("testName");
             //check that the correct number of records are found
             if(FilteredStaffs.Count == 2)
             {
                 //check that the first record is ID 36
-                if (FilteredStaffs.StaffList[0].StaffNo != 8)
+                if (FilteredStaffs.StaffList[0].StaffNo != 92)
                 {
                     OK = false;
                 }
                 //check that the first record is ID 37
-                if (FilteredStaffs.StaffList[1].StaffNo != 10)
+                if (FilteredStaffs.StaffList[1].StaffNo != 93)
                 {
                     OK = false;
                 }
