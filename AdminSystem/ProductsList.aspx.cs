@@ -53,6 +53,43 @@ public partial class _1_List : System.Web.UI.Page
             lblError.Text = "Please select a record to edit from the list";
         }
     }
+    
+    protected void btnView_Click(object sender, EventArgs e)
+    {
+        int ProductNumber;
+
+        if (lstProductsList.SelectedIndex != -1)
+        {
+            ProductNumber = Convert.ToInt32(lstProductsList.SelectedValue);
+
+            clsProduct anProduct = new clsProduct();
+
+            clsDataConnection DB = new clsDataConnection();
+
+            DB.AddParameter("@ProductNumber", ProductNumber);
+
+            DB.Execute("sproc_tblProducts_FilterByProductNumber");
+
+            if (DB.Count == 1)
+            {
+                anProduct.ProductNumber = Convert.ToInt32(DB.DataTable.Rows[0]["ProductNumber"]);
+                anProduct.ProductTitle = Convert.ToString(DB.DataTable.Rows[0]["ProductTitle"]);
+                anProduct.ProductDescription = Convert.ToString(DB.DataTable.Rows[0]["ProductDescription"]);
+                anProduct.ProductPrice = Convert.ToDouble(DB.DataTable.Rows[0]["ProductPrice"]);
+                anProduct.ProductCreateDate = Convert.ToDateTime(DB.DataTable.Rows[0]["ProductCreateDate"]);
+                anProduct.ProductAvailability = Convert.ToBoolean(DB.DataTable.Rows[0]["ProductAvailability"]);
+                anProduct.StaffNo = Convert.ToInt32(DB.DataTable.Rows[0]["StaffNo"]);
+
+                Session["AnProduct"] = anProduct;
+
+                Response.Redirect("ProductViewer.aspx");
+            }
+        } 
+        else
+        {
+            lblError.Text = "Please select a record to view from the list";
+        }
+    }
 
     protected void btnDelete_Click(object sender, EventArgs e)
     {
