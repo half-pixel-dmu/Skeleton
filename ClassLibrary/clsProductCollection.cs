@@ -46,32 +46,11 @@ namespace ClassLibrary
 
         public clsProductCollection() 
         {
-            int Index = 0;
-            
-            int RecordCount = 0;
-
             clsDataConnection DB = new clsDataConnection();
 
             DB.Execute("sproc_tblProducts_SelectAll");
 
-            RecordCount = DB.Count;
-
-            while (Index < RecordCount)
-            {
-                clsProduct AnProduct = new clsProduct();
-
-                AnProduct.ProductNumber = Convert.ToInt32(DB.DataTable.Rows[Index]["ProductNumber"]);
-                AnProduct.ProductTitle = Convert.ToString(DB.DataTable.Rows[Index]["ProductTitle"]);
-                AnProduct.ProductDescription = Convert.ToString(DB.DataTable.Rows[Index]["ProductDescription"]);
-                AnProduct.ProductPrice = Convert.ToDouble(DB.DataTable.Rows[Index]["ProductPrice"]);
-                AnProduct.ProductCreateDate = Convert.ToDateTime(DB.DataTable.Rows[Index]["ProductCreateDate"]);
-                AnProduct.ProductAvailability = Convert.ToBoolean(DB.DataTable.Rows[Index]["ProductAvailability"]);
-                AnProduct.StaffNo = Convert.ToInt32(DB.DataTable.Rows[Index]["StaffNo"]);
-
-                mProductList.Add(AnProduct);
-
-                Index++;
-            }
+            PopulateArray(DB);
         }
 
         public int Add()
@@ -108,6 +87,45 @@ namespace ClassLibrary
             DB.AddParameter("@ProductNumber", mThisProduct.ProductNumber);
 
             DB.Execute("sproc_tblProducts_Delete");
+        }
+
+        public void ReportByProductTitle(string ProductTitle)
+        {
+            clsDataConnection DB = new clsDataConnection();
+
+            DB.AddParameter("@ProductTitle", ProductTitle);
+
+            DB.Execute("sproc_tblProducts_FilterByProductTitle");
+
+            PopulateArray(DB);
+        }
+
+        void PopulateArray(clsDataConnection DB)
+        {
+            int Index = 0;
+
+            int RecordCount;
+
+            RecordCount = DB.Count;
+
+            mProductList = new List<clsProduct>();
+
+            while (Index < RecordCount)
+            {
+                clsProduct AnProduct = new clsProduct();
+
+                AnProduct.ProductNumber = Convert.ToInt32(DB.DataTable.Rows[Index]["ProductNumber"]);
+                AnProduct.ProductTitle = Convert.ToString(DB.DataTable.Rows[Index]["ProductTitle"]);
+                AnProduct.ProductDescription = Convert.ToString(DB.DataTable.Rows[Index]["ProductDescription"]);
+                AnProduct.ProductPrice = Convert.ToDouble(DB.DataTable.Rows[Index]["ProductPrice"]);
+                AnProduct.ProductCreateDate = Convert.ToDateTime(DB.DataTable.Rows[Index]["ProductCreateDate"]);
+                AnProduct.ProductAvailability = Convert.ToBoolean(DB.DataTable.Rows[Index]["ProductAvailability"]);
+                AnProduct.StaffNo = Convert.ToInt32(DB.DataTable.Rows[Index]["StaffNo"]);
+
+                mProductList.Add(AnProduct);
+
+                Index++;
+            }
         }
     }
 }

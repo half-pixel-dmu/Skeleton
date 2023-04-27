@@ -101,4 +101,9 @@ public partial class ProductDataEntry : System.Web.UI.Page
             lblError.Text = Error;
         }
     }
+
+    protected void btnCancel_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("ProductsList.aspx");
+    }
 }

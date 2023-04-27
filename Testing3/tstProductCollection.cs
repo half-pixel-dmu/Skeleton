@@ -165,5 +165,46 @@ namespace TestingProduct
 
             Assert.IsFalse(Found);
         }
+
+        [TestMethod]
+        public void ReportByProductTitleMethodOK()
+        {
+            clsProductCollection AllProducts = new clsProductCollection();
+
+            clsProductCollection FilteredProducts = new clsProductCollection();
+
+            FilteredProducts.ReportByProductTitle("");
+
+            Assert.AreEqual(AllProducts.Count, FilteredProducts.Count);
+        }
+
+        [TestMethod]
+        public void ReportByProductTitleDataFound()
+        {
+            clsProductCollection FilteredProducts = new clsProductCollection();
+
+            Boolean OK = true;
+
+            FilteredProducts.ReportByProductTitle("test");
+
+            if (FilteredProducts.Count == 2)
+            {
+                if (FilteredProducts.ProductList[0].ProductNumber != 11)
+                {
+                    OK = false;
+                }
+
+                if (FilteredProducts.ProductList[1].ProductNumber != 12)
+                {
+                    OK = false;
+                }
+            } 
+            else
+            {
+                OK = false;
+            }
+
+            Assert.IsTrue(OK);
+        }
     }
 }

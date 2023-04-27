@@ -45,9 +45,9 @@
 
         <br /><br />
 
-        <asp:Button ID="btnCreate" runat="server" Text="Create" OnClick="btnCreate_Click" />
+        <asp:Button ID="btnCreate" runat="server" Text="OK" OnClick="btnCreate_Click" />
         &nbsp;&nbsp;
-        <asp:Button ID="btnCancel" runat="server" Text="Cancel" />
+        <asp:Button ID="btnCancel" runat="server" Text="Cancel" OnClick="btnCancel_Click" />
 
         <br /><br />
 
