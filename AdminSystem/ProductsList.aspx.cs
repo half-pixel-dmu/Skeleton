@@ -62,25 +62,13 @@ public partial class _1_List : System.Web.UI.Page
         {
             ProductNumber = Convert.ToInt32(lstProductsList.SelectedValue);
 
-            clsProduct anProduct = new clsProduct();
+            clsProductCollection Products = new clsProductCollection();
 
-            clsDataConnection DB = new clsDataConnection();
+            Boolean OK = Products.ThisProduct.Find(ProductNumber);
 
-            DB.AddParameter("@ProductNumber", ProductNumber);
-
-            DB.Execute("sproc_tblProducts_FilterByProductNumber");
-
-            if (DB.Count == 1)
+            if (OK)
             {
-                anProduct.ProductNumber = Convert.ToInt32(DB.DataTable.Rows[0]["ProductNumber"]);
-                anProduct.ProductTitle = Convert.ToString(DB.DataTable.Rows[0]["ProductTitle"]);
-                anProduct.ProductDescription = Convert.ToString(DB.DataTable.Rows[0]["ProductDescription"]);
-                anProduct.ProductPrice = Convert.ToDouble(DB.DataTable.Rows[0]["ProductPrice"]);
-                anProduct.ProductCreateDate = Convert.ToDateTime(DB.DataTable.Rows[0]["ProductCreateDate"]);
-                anProduct.ProductAvailability = Convert.ToBoolean(DB.DataTable.Rows[0]["ProductAvailability"]);
-                anProduct.StaffNo = Convert.ToInt32(DB.DataTable.Rows[0]["StaffNo"]);
-
-                Session["AnProduct"] = anProduct;
+                Session["AnProduct"] = Products.ThisProduct;
 
                 Response.Redirect("ProductViewer.aspx");
             }
