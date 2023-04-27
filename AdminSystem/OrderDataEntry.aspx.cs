@@ -59,17 +59,17 @@ public partial class _1_DataEntry : System.Web.UI.Page
         }
      void DisplayOrder()
     {
-        clsOrderCollection OrderBook = new clsOrderCollection();
-        OrderBook.ThisOrder.Find(1);
-        txtOrderNo.Text = OrderBook.ThisOrder.OrderNo.ToString();
-        txtCustomerNo.Text = OrderBook.ThisOrder.CustomerNo.ToString();
-        txtOrderDate.Text = OrderBook.ThisOrder.OrderDate.ToString();
-        txtProductId.Text = OrderBook.ThisOrder.ProductId.ToString();
-        txtOrderPrice.Text = OrderBook.ThisOrder.OrderPrice.ToString();
-        txtOrderStatus.Text = OrderBook.ThisOrder.OrderStatus.ToString();
+        // clsOrderCollection OrderBook = new clsOrderCollection();
+        // OrderBook.ThisOrder.Find(1);
+        // txtOrderNo.Text = OrderBook.ThisOrder.OrderNo.ToString();
+        // txtCustomerNo.Text = OrderBook.ThisOrder.CustomerNo.ToString();
+        // txtOrderDate.Text = OrderBook.ThisOrder.OrderDate.ToString();
+        // txtProductId.Text = OrderBook.ThisOrder.ProductId.ToString();
+        // txtOrderPrice.Text = OrderBook.ThisOrder.OrderPrice.ToString();
+        // txtOrderStatus.Text = OrderBook.ThisOrder.OrderStatus.ToString();
 
 
 
     }
 
-    }
+}

@@ -25,7 +25,7 @@
             <asp:Button ID="btnClear" runat="server" OnClick="btnClear_Click" Text="Clear" />
         </p>
         <p>
-            <asp:Label ID="lblError" runat="server" Text="[lblError]"></asp:Label>
+            <asp:Label ID="lblError" runat="server" Text=""></asp:Label>
         </p>
     </form>
 </body>

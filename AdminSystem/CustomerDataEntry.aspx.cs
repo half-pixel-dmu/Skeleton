@@ -129,4 +129,9 @@ public partial class _1_DataEntry : System.Web.UI.Page
         txtCustomerDateJoined.Text = CustomerBook.ThisCustomer.CustomerDateJoined.ToString();
         chkActive.Checked = CustomerBook.ThisCustomer.CustomerConfirmed; 
     }
+
+    protected void btnCancel_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("CustomersList.aspx");
+    }
 }

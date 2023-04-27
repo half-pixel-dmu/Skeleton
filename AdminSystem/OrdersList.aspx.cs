@@ -18,11 +18,11 @@ public partial class _1_List : System.Web.UI.Page
     }
     void DisplayOrder()
     {
-        clsOrderCollection Order = new clsOrderCollection();
-        lstOrderLst.DataSource = Order.OrderList;
-        lstOrderLst.DataValueField = "OrderNo";
-        lstOrderLst.DataTextField = "Customer No";
-        lstOrderLst.DataBind();
+        // clsOrderCollection Order = new clsOrderCollection();
+        // lstOrderLst.DataSource = Order.OrderList;
+        // lstOrderLst.DataValueField = "OrderNo";
+        // lstOrderLst.DataTextField = "Customer No";
+        // lstOrderLst.DataBind();
     }
 
 
@@ -65,23 +65,23 @@ public partial class _1_List : System.Web.UI.Page
 
     protected void btnApply_Click(object sender, EventArgs e)
     {
-        clsOrderCollection Order = new clsOrderCollection();
-        Order.ReportByOrderNo(TxtboxOrderNo.Text);
-        lstOrderLst.DataSource = Order.OrderList;
-        lstOrderLst.DataValueField = "OrderNo";
-        lstOrderLst.DataTextField = "OrderNo";
-        lstOrderLst.DataBind();
+        // clsOrderCollection Order = new clsOrderCollection();
+        // Order.ReportByOrderNo(TxtboxOrderNo.Text);
+        // lstOrderLst.DataSource = Order.OrderList;
+        // lstOrderLst.DataValueField = "OrderNo";
+        // lstOrderLst.DataTextField = "OrderNo";
+        // lstOrderLst.DataBind();
     }
 
     protected void btnClear_Click(object sender, EventArgs e)
     {
-        clsOrderCollection Order = new clsOrderCollection();
-        Order.ReportByOrderNo("");
-        TxtboxOrderNo.Text = "";
-        lstOrderLst.DataSource = Order.OrderList;
-        lstOrderLst.DataSource = Order.OrderList;
-        lstOrderLst.DataValueField = "OrderNo";
-        lstOrderLst.DataTextField = "OrderNo";
-        lstOrderLst.DataBind();
+        // clsOrderCollection Order = new clsOrderCollection();
+        // Order.ReportByOrderNo("");
+        // TxtboxOrderNo.Text = "";
+        // lstOrderLst.DataSource = Order.OrderList;
+        // lstOrderLst.DataSource = Order.OrderList;
+        // lstOrderLst.DataValueField = "OrderNo";
+        // lstOrderLst.DataTextField = "OrderNo";
+        // lstOrderLst.DataBind();
     }
 }
