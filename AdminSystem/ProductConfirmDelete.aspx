@@ -7,9 +7,17 @@
     <title></title>
 </head>
 <body>
-    <form id="form1" runat="server">
-        <div>
-        </div>
+    <form id="productDeleteForm" runat="server">
+        <p>Are you sure you want to delete this record?</p>
+    
+        <br />
+    
+        <p>Product Number: <asp:Label ID="lblProductNumber" runat="server" Text=""></asp:Label></p>
+    
+        <br />
+    
+        <asp:Button ID="btnYes" runat="server" Text="Yes" OnClick="btnYes_Click" />
+        <asp:Button ID="btnNo" runat="server" Text="No" OnClick="btnNo_Click" />
     </form>
 </body>
 </html>
