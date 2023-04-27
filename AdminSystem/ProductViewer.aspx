@@ -9,14 +9,12 @@
 <body>
     <h1>Product viewer page</h1>
     
-    <asp:Label ID="lblTitle" runat="server" Text=""></asp:Label>
-    <br />
-    <asp:Label ID="lblDescription" runat="server" Text=""></asp:Label>
-    <br />
-    <asp:Label ID="lblPrice" runat="server" Text=""></asp:Label>
-    <br />
-    <asp:Label ID="lblAvailability" runat="server" Text=""></asp:Label>
-    <br />
-    <asp:Label ID="lblStaffNo" runat="server" Text=""></asp:Label>
+    <p>Number: <asp:Label ID="lblNumber" runat="server" Text=""></asp:Label></p>
+    <p>Title: <asp:Label ID="lblTitle" runat="server" Text=""></asp:Label></p>
+    <p>Description: <asp:Label ID="lblDescription" runat="server" Text=""></asp:Label></p>
+    <p>Price: <asp:Label ID="lblPrice" runat="server" Text=""></asp:Label></p>
+    <p>Availability: <asp:Label ID="lblAvailability" runat="server" Text=""></asp:Label></p>
+    <p>Create Date: <asp:Label ID="lblCreateDate" runat="server" Text=""></asp:Label></p>
+    <p>Staff number: <asp:Label ID="lblStaffNo" runat="server" Text=""></asp:Label></p>
 </body>
 </html>

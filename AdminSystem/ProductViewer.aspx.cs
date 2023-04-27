@@ -12,10 +12,12 @@ public partial class ProductViewer : System.Web.UI.Page
     {
         clsProduct anProduct = (clsProduct)Session["AnProduct"];
 
+        lblNumber.Text = anProduct.ProductNumber.ToString();
         lblTitle.Text = anProduct.ProductTitle;
         lblDescription.Text = anProduct.ProductDescription;
         lblPrice.Text = anProduct.ProductPrice.ToString();
         lblAvailability.Text = anProduct.ProductAvailability.ToString();
+        lblCreateDate.Text = anProduct.ProductCreateDate.ToString();
         lblStaffNo.Text = anProduct.StaffNo.ToString();
     }
 }
